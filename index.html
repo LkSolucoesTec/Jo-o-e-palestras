@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>JOÃO HENRIQUE RIBEIRO | THE DIGITAL ARCHITECT</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@500;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-tertiary-container": "#003939",
+                    "on-surface-variant": "#e1bfb8",
+                    "surface-container-highest": "#31353e",
+                    "inverse-on-surface": "#2d303a",
+                    "on-primary": "#630f00",
+                    "surface": "#10131c",
+                    "outline": "#a88a83",
+                    "on-secondary-container": "#f89e89",
+                    "surface-container-low": "#181c24",
+                    "primary-fixed": "#ffdad2",
+                    "secondary-fixed": "#ffdad2",
+                    "secondary": "#ffb4a3",
+                    "on-secondary": "#571e11",
+                    "tertiary-container": "#00acab",
+                    "primary": "#ffb4a3",
+                    "primary-container": "#ff6b4a",
+                    "on-surface": "#e0e2ee",
+                    "surface-dim": "#10131c",
+                    "on-error-container": "#ffdad6",
+                    "surface-bright": "#353943",
+                    "on-secondary-fixed-variant": "#743324",
+                    "on-tertiary": "#003736",
+                    "secondary-container": "#743324",
+                    "on-primary-container": "#661000",
+                    "on-primary-fixed-variant": "#8c1900",
+                    "surface-container-high": "#262a33",
+                    "on-tertiary-fixed": "#002020",
+                    "outline-variant": "#59413c",
+                    "surface-tint": "#ffb4a3",
+                    "surface-container": "#1c2028",
+                    "background": "#10131c",
+                    "inverse-surface": "#e0e2ee",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#ffb4a3",
+                    "error-container": "#93000a",
+                    "tertiary-fixed-dim": "#56d9d8",
+                    "surface-variant": "#31353e",
+                    "on-background": "#e0e2ee",
+                    "surface-container-lowest": "#0a0e16",
+                    "on-tertiary-fixed-variant": "#00504f",
+                    "inverse-primary": "#ae3115",
+                    "tertiary-fixed": "#76f6f4",
+                    "tertiary": "#56d9d8",
+                    "primary-fixed-dim": "#ffb4a3",
+                    "on-secondary-fixed": "#3b0902",
+                    "on-error": "#690005",
+                    "on-primary-fixed": "#3d0600"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0rem",
+                    "lg": "0rem",
+                    "xl": "0rem",
+                    "full": "9999px"
+            },
+            "fontFamily": {
+                    "headline": ["Space Grotesk"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-body selection:bg-primary-container selection:text-on-primary-container">
+    <div class="fixed inset-0 mesh-grid pointer-events-none z-0"></div>
+
+        <!--MENU-->
+    <header class="fixed top-0 w-full z-[100] flex justify-between items-center px-6 md:px-12 py-6 md:py-8 bg-[#10131c]/70 backdrop-blur-xl transition-all duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]">
+        
+    <a href="#" class="block z-[70]">
+        <img src="assets/logo-joão.png" alt="João Henrique Ribeiro" class="h-10 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-105">
+    </a>
+
+    <nav class="hidden md:flex gap-10 items-center">
+        <a class="font-headline uppercase tracking-[-0.04em] font-bold text-sm text-[#F4F4F4]/60 hover:text-[#F4F4F4] transition-all duration-300" href="#home">Home</a>
+        <a class="font-headline uppercase tracking-[-0.04em] font-bold text-sm text-[#F4F4F4]/60 hover:text-[#F4F4F4] transition-all duration-300" href="#sobre">Sobre</a>
+        
+        <div class="relative group cursor-pointer py-4">
+            <div class="flex items-center gap-1 font-headline uppercase tracking-[-0.04em] font-bold text-sm text-[#FF6B4A] border-b-2 border-[#FF6B4A] pb-1 hover:text-[#F4F4F4] transition-all duration-300">
+                <span>Palestras</span>
+                <span class="material-symbols-outlined text-[18px] group-hover:rotate-180 transition-transform duration-500">keyboard_arrow_down</span>
+            </div>
+            
+            <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-64 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-500 transform translate-y-4 group-hover:translate-y-0 bg-[#10131c]/95 backdrop-blur-xl border border-[#F4F4F4]/10 p-5 shadow-2xl z-50 flex flex-col gap-4">
+                <a href="palestra-deu-match.html" class="font-headline text-sm font-bold tracking-wide text-[#F4F4F4]/70 hover:text-[#FF6B4A] hover:translate-x-2 transition-all duration-300">Deu Match</a>
+                <a href="palestra-paixao.html" class="font-headline text-sm font-bold tracking-wide text-[#F4F4F4]/70 hover:text-[#FF6B4A] hover:translate-x-2 transition-all duration-300">Paixão & Performance</a>
+                <a href="palestra-otimismo.html" class="font-headline text-sm font-bold tracking-wide text-[#F4F4F4]/70 hover:text-[#FF6B4A] hover:translate-x-2 transition-all duration-300">Otimismo Estratégico</a>
+            </div>
+        </div>
+
+        <a class="font-headline uppercase tracking-[-0.04em] font-bold text-sm text-[#F4F4F4]/60 hover:text-[#F4F4F4] transition-all duration-300" href="#galeria">Galeria</a>
+        <a class="font-headline uppercase tracking-[-0.04em] font-bold text-sm text-[#F4F4F4]/60 hover:text-[#F4F4F4] transition-all duration-300" href="#contato">Contato</a>
+    </nav>
+
+    <div id="btn-mobile" class="md:hidden text-[#F4F4F4] cursor-pointer z-[70] relative">
+        <span class="material-symbols-outlined text-4xl">menu</span>
+    </div>
+
+    <nav id="menu-mobile" class="hidden absolute top-0 left-0 w-full h-screen bg-[#10131c]/95 backdrop-blur-xl flex flex-col items-center justify-center gap-8 z-[60]">
+        <a class="font-headline uppercase tracking-[0.2em] font-bold text-xl text-[#F4F4F4] hover:text-[#FF6B4A] transition-colors" href="#home">Home</a>
+        <a class="font-headline uppercase tracking-[0.2em] font-bold text-xl text-[#F4F4F4] hover:text-[#FF6B4A] transition-colors" href="#sobre">Sobre</a>
+        <a class="font-headline uppercase tracking-[0.2em] font-bold text-xl text-[#F4F4F4] hover:text-[#FF6B4A] transition-colors" href="#palestras">Palestras</a>
+        <a class="font-headline uppercase tracking-[0.2em] font-bold text-xl text-[#F4F4F4] hover:text-[#FF6B4A] transition-colors" href="#galeria">Galeria</a>
+        <a class="font-headline uppercase tracking-[0.2em] font-bold text-lg text-[#10131c] bg-[#FF6B4A] px-8 py-4 mt-4 transition-transform hover:scale-105" href="#contato">AGENDAR PALESTRA</a>
+    </nav>
+
+</header>
+
+<!--HERO-->
+    <main class="relative z-10">
+        <section id="home" class="min-h-screen flex flex-col md:flex-row items-center pt-32 pb-16 px-6 md:px-12 relative">
+            <div class="w-full md:w-3/5 z-20">
+                <div class="reveal hero-text-reveal">
+                    <h1 class="font-headline font-bold text-5xl md:text-8xl editorial-text text-[#F4F4F4] mb-8">
+                        EXPERIÊNCIA:<br/>
+                        <span class="text-primary-container">CATALISADORES</span><br/>
+                        DE RESULTADOS.
+                    </h1>
+                    <p class="max-w-xl text-lg text-on-surface/60 mb-10 leading-relaxed">
+                        Arquiteto digital e palestrante internacional. Transformando complexidade técnica em vantagem competitiva através de narrativas de impacto e inteligência estratégica.
+                    </p>
+                    <div class="flex gap-6">
+                        <div class="flex flex-col sm:flex-row gap-6">
+    <a href="#palestras" class="bg-primary-container text-on-primary-container px-10 py-5 font-headline font-bold uppercase text-sm tracking-widest square-cta flex items-center justify-center hover:bg-[#F4F4F4] transition-colors duration-300">
+        VER PALESTRAS
+    </a>
+    
+    <a href="https://wa.me/5511999999999?text=Ol%C3%A1%2C+gostaria+de+solicitar+um+or%C3%A7amento+para+uma+palestra+corporativa." target="_blank" rel="noopener noreferrer" class="border border-outline-variant/30 text-[#F4F4F4] px-10 py-5 font-headline font-bold uppercase text-sm tracking-widest square-cta hover:bg-surface-bright hover:border-primary-container hover:text-primary-container flex items-center justify-center transition-all duration-300">
+        ORÇAMENTO
+    </a>
+</div>
+                    </div>
+                </div>
+            </div>
+           <div class="w-full md:w-2/5 mt-16 md:mt-0 relative aspect-[3/4] md:translate-x-12 reveal hero-image-reveal group cursor-pointer">
+    <div class="absolute inset-0 bg-primary-container/10 z-10 mix-blend-overlay transition-opacity duration-1000 group-hover:opacity-0"></div>
+    
+    <img alt="João Henrique Ribeiro em ação" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-1000 ease-in-out" src="assets/joãohero.png"/>
+    
+    <div class="absolute -bottom-8 -left-8 bg-surface-container p-8 hidden md:block z-20">
+        <span class="font-headline text-primary-container text-5xl font-bold">+20</span>
+        <p class="text-xs tracking-widest uppercase text-on-surface/40 mt-2">Anos de Experiencia no Mercado</p>
+    </div>
+</div>
+        </section>
+
+        <section id="sobre" class="py-32 px-6 md:px-12 bg-surface-container-low relative overflow-hidden">
+    
+            <!--TIMELINE-->
+    <div class="max-w-3xl mx-auto text-center mb-24 reveal scroll-reveal">
+        <label class="text-primary-container font-headline font-bold text-xs tracking-[0.3em] uppercase block mb-6">A Jornada</label>
+        <h2 class="font-headline text-5xl font-bold editorial-text text-[#F4F4F4] mb-6">
+            A LINHA DO TEMPO<br/>
+            <em class="font-light italic text-primary-container">de uma missão</em>
+        </h2>
+        <p class="text-xl text-on-surface/60 italic font-light">
+            “Cada conquista nasce da união entre propósito e disciplina. O caminho que trilhei não foi apenas sobre resultados, mas sobre transformar desafios em realizações que inspiram e permanecem como legado.”
+        </p>
+    </div>
+
+    <div class="timeline relative max-w-5xl mx-auto pb-20">
+        <div class="timeline-line absolute left-1/2 top-0 bottom-0 w-[1px] bg-on-surface/10 -translate-x-1/2">
+            <div class="timeline-progress absolute left-0 top-0 w-full bg-gradient-to-b from-primary-container to-primary h-0 shadow-[0_0_15px_rgba(255,107,74,0.5)]"></div>
+        </div>
+
+        <article class="timeline-item grid grid-cols-[1fr_60px_1fr] gap-0 items-center mb-20 relative">
+            <div class="timeline-card col-start-1 col-end-2 p-8 bg-surface-container-high border border-transparent transition-all duration-500 relative z-10 text-right">
+                <p class="year text-[10px] tracking-[0.3em] uppercase text-primary-container font-bold mb-3">A Base Sólida</p>
+                <h3 class="font-headline text-2xl font-bold text-[#F4F4F4] mb-3">Fundamentos de Ouro</h3>
+                <p class="text-sm text-on-surface/60 leading-relaxed">
+                    <span class="text-[#F4F4F4] font-bold">PUBLICITÁRIO</span> formado pela ESPM, com mestrado em Administração pela PUC-SP, focando no estudo profundo do comportamento de consumo.
+                </p>
+            </div>
+            <div class="timeline-dot-col col-start-2 col-end-3 flex justify-center z-10">
+                <div class="timeline-dot w-4 h-4 rounded-full bg-surface border-2 border-on-surface/30 transition-all duration-500"></div>
+            </div>
+            <div class="col-start-3"></div>
+        </article>
+
+        <article class="timeline-item grid grid-cols-[1fr_60px_1fr] gap-0 items-center mb-20 relative">
+            <div class="col-start-1"></div>
+            <div class="timeline-dot-col col-start-2 col-end-3 flex justify-center z-10">
+                <div class="timeline-dot w-4 h-4 rounded-full bg-surface border-2 border-on-surface/30 transition-all duration-500"></div>
+            </div>
+            <div class="timeline-card col-start-3 col-end-4 p-8 bg-surface-container-high border border-transparent transition-all duration-500 relative z-10 text-left">
+                <p class="year text-[10px] tracking-[0.3em] uppercase text-primary-container font-bold mb-3">Mente Humana</p>
+                <h3 class="font-headline text-2xl font-bold text-[#F4F4F4] mb-3">Decodificando Comportamentos</h3>
+                <p class="text-sm text-on-surface/60 leading-relaxed">
+                    Tornou-se <span class="text-[#F4F4F4] font-bold">PRACTITIONER</span> em Programação Neurolinguística (PNL) certificado pela ACTIUS, especializando-se na ciência do comportamento humano.
+                </p>
+            </div>
+        </article>
+
+        <article class="timeline-item grid grid-cols-[1fr_60px_1fr] gap-0 items-center mb-20 relative">
+            <div class="timeline-card col-start-1 col-end-2 p-8 bg-surface-container-high border border-transparent transition-all duration-500 relative z-10 text-right">
+                <p class="year text-[10px] tracking-[0.3em] uppercase text-primary-container font-bold mb-3">Visão Global</p>
+                <h3 class="font-headline text-2xl font-bold text-[#F4F4F4] mb-3">Formação de Elite</h3>
+                <p class="text-sm text-on-surface/60 leading-relaxed">
+                    Especializações internacionais nas maiores referências globais: cursos na <span class="text-[#F4F4F4] font-bold">WALT DISNEY COMPANY</span>, UPW com <span class="text-[#F4F4F4] font-bold">TONY ROBBINS</span> e Millionaire Mind com T. Harv Eker.
+                </p>
+            </div>
+            <div class="timeline-dot-col col-start-2 col-end-3 flex justify-center z-10">
+                <div class="timeline-dot w-4 h-4 rounded-full bg-surface border-2 border-on-surface/30 transition-all duration-500"></div>
+            </div>
+            <div class="col-start-3"></div>
+        </article>
+
+        <article class="timeline-item grid grid-cols-[1fr_60px_1fr] gap-0 items-center mb-20 relative">
+            <div class="col-start-1"></div>
+            <div class="timeline-dot-col col-start-2 col-end-3 flex justify-center z-10">
+                <div class="timeline-dot w-4 h-4 rounded-full bg-surface border-2 border-on-surface/30 transition-all duration-500"></div>
+            </div>
+            <div class="timeline-card col-start-3 col-end-4 p-8 bg-surface-container-high border border-transparent transition-all duration-500 relative z-10 text-left">
+                <p class="year text-[10px] tracking-[0.3em] uppercase text-primary-container font-bold mb-3">A Marca</p>
+                <h3 class="font-headline text-2xl font-bold text-[#F4F4F4] mb-3">Construindo o Legado</h3>
+                <p class="text-sm text-on-surface/60 leading-relaxed">
+                    <span class="text-[#F4F4F4] font-bold">CEO</span> da Dolfyn Comunicação, <span class="text-[#F4F4F4] font-bold">CO-AUTOR</span> do livro "Informação em Marketing" (Ed. Novatec), Consultor e <span class="text-[#F4F4F4] font-bold">TEDx SPEAKER</span>.
+                </p>
+            </div>
+        </article>
+    </div>
+    
+    <!--NUMEROS DINAMICOS-->
+ <div class="numbers-container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-1 max-w-6xl mx-auto pt-16 mt-16 border-t border-on-surface/10 relative z-20">
+        
+        <div class="number-card bg-surface-container-high p-10 text-center relative overflow-hidden group reveal-number">
+            <div class="font-headline text-5xl md:text-6xl font-bold text-primary-container mb-3 flex justify-center items-center">
+                <span class="num" data-count="20">0</span><span class="text-primary-container">+</span>
+            </div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-on-surface/60 font-bold">Anos de experiência</div>
+        </div>
+
+        <div class="number-card bg-surface-container p-10 text-center relative overflow-hidden group reveal-number">
+            <div class="font-headline text-5xl md:text-6xl font-bold text-primary-container mb-3 flex justify-center items-center">
+                <span class="num" data-count="9000">0</span><span class="text-primary-container">+</span>
+            </div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-on-surface/60 font-bold">Horas de palco</div>
+        </div>
+
+        <div class="number-card bg-surface-container-high p-10 text-center relative overflow-hidden group reveal-number">
+            <div class="font-headline text-5xl md:text-6xl font-bold text-primary-container mb-3 flex justify-center items-center">
+                <span class="num" data-count="30000">0</span><span class="text-primary-container">+</span>
+            </div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-on-surface/60 font-bold">Pessoas impactadas</div>
+        </div>
+
+        <div class="number-card bg-surface-container p-10 text-center relative overflow-hidden group reveal-number">
+            <div class="font-headline text-5xl md:text-6xl font-bold text-primary-container mb-3 flex justify-center items-center">
+                <span class="num" data-count="50">0</span><span class="text-primary-container">+</span>
+            </div>
+            <div class="text-[10px] tracking-[0.2em] uppercase text-on-surface/60 font-bold">Empresas transformadas</div>
+        </div>
+
+    </div>
+</section>
+
+<!--FIM SOBRE-->
+        <section class="py-32 px-6 md:px-12 bg-surface-container-low">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-16">
+                <div class="md:col-span-4 reveal scroll-reveal">
+                    <label class="text-primary-container font-headline font-bold text-xs tracking-[0.3em] uppercase block mb-6">The Authority</label>
+                    <h2 class="font-headline text-4xl font-bold editorial-text text-[#F4F4F4]">Autoridade que Inspira e Transforma</h2>
+                </div>
+                <div class="md:col-span-7 md:col-start-6 space-y-8">
+                    <p class="text-2xl font-light text-on-surface/80 leading-relaxed italic reveal scroll-reveal">
+                        “Mais do que palestras, entrego experiências que unem conhecimento, estratégia e inspiração. Minha trajetória é marcada pela capacidade de transformar ideias em resultados, conectando pessoas e organizações através de conteúdos relevantes e aplicáveis. Cada apresentação é construída para gerar impacto real, provocar reflexão e abrir caminhos para novas conquistas. Com profissionalismo e visão, sigo ajudando empresas e indivíduos a alcançarem o próximo nível, sempre com propósito e excelência.”
+                    </p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-1 max-w-6xl mx-auto pt-16 mt-16 border-t border-on-surface/10 relative z-20">
+        <div class="number-card bg-surface-container p-10 text-center relative overflow-hidden group">
+            <span class="block font-headline text-5xl font-bold text-primary-container mb-2 group-hover:scale-110 transition-transform duration-500">500+</span>
+            <label class="text-[10px] tracking-[0.2em] uppercase text-on-surface/40 block">Keynotes Entregues</label>
+        </div>
+        <div class="number-card bg-surface-container p-10 text-center relative overflow-hidden group">
+            <span class="block font-headline text-5xl font-bold text-primary-container mb-2 group-hover:scale-110 transition-transform duration-500">33k</span>
+            <label class="text-[10px] tracking-[0.2em] uppercase text-on-surface/40 block">Profissionais Treinados</label>
+        </div>
+        <div class="number-card bg-surface-container p-10 text-center relative overflow-hidden group">
+            <span class="block font-headline text-5xl font-bold text-primary-container mb-2 group-hover:scale-110 transition-transform duration-500">20+</span>
+            <label class="text-[10px] tracking-[0.2em] uppercase text-on-surface/40 block">Anos de Mercado</label>
+        </div>
+        <div class="number-card bg-surface-container p-10 text-center relative overflow-hidden group">
+            <span class="block font-headline text-5xl font-bold text-primary-container mb-2 group-hover:scale-110 transition-transform duration-500">1</span>
+            <label class="text-[10px] tracking-[0.2em] uppercase text-on-surface/40 block">Propósito Real</label>
+        </div>
+    </div>
+                </div>
+            </div>
+        </section>
+
+<!--CREDENCIAIS E EMPRESAS PARCEIRAS--> 
+       <section id="clientes-e-certificacoes" class="py-32 bg-surface-container-lowest relative z-10 overflow-hidden border-y border-outline-variant/10">
+    
+  <div class="px-6 md:px-12 max-w-7xl mx-auto mb-16 text-center reveal scroll-reveal">
+        <h2 class="font-headline font-bold text-3xl md:text-5xl tracking-[0.2em] uppercase text-primary-container drop-shadow-lg">
+            Empresas que Confiam
+        </h2>
+    </div>
+
+    <div class="carousel-container">
+        
+        <div class="carousel-track">
+            <div class="cliente-item"><img src="assets/logo1.png"></div>
+            <div class="cliente-item"><img src="assets/logo2.png"></div>
+            <div class="cliente-item"><img src="assets/logo3.png"></div>
+            <div class="cliente-item"><img src="assets/logo4.png"></div>
+            <div class="cliente-item"><img src="assets/logo5.png"></div>
+            <div class="cliente-item"><img src="assets/logo6.png"></div>
+            <div class="cliente-item"><img src="assets/logo1.png"></div>
+            <div class="cliente-item"><img src="assets/logo2.png"></div>
+            <div class="cliente-item"><img src="assets/logo3.png"></div>
+            <div class="cliente-item"><img src="assets/logo4.png"></div>
+            <div class="cliente-item"><img src="assets/logo5.png"></div>
+            <div class="cliente-item"><img src="assets/logo6.png"></div>
+        </div>
+
+        <div class="carousel-track reverse">
+            <div class="cliente-item"><img src="assets/logo7.png"></div>
+            <div class="cliente-item"><img src="assets/logo8.png"></div>
+            <div class="cliente-item"><img src="assets/logo9.png"></div>
+            <div class="cliente-item"><img src="assets/logo10.png"></div>
+            <div class="cliente-item"><img src="assets/logo11.png"></div>
+            <div class="cliente-item"><img src="assets/logo12.png"></div>
+            <div class="cliente-item"><img src="assets/logo7.png"></div>
+            <div class="cliente-item"><img src="assets/logo8.png"></div>
+            <div class="cliente-item"><img src="assets/logo9.png"></div>
+            <div class="cliente-item"><img src="assets/logo10.png"></div>
+            <div class="cliente-item"><img src="assets/logo11.png"></div>
+            <div class="cliente-item"><img src="assets/logo12.png"></div>
+        </div>
+
+        <div class="carousel-track">
+            <div class="cliente-item"><img src="assets/logo13.png"></div>
+            <div class="cliente-item"><img src="assets/logo14.png"></div>
+            <div class="cliente-item"><img src="assets/logo15.png"></div>
+            <div class="cliente-item"><img src="assets/logo16.png"></div>
+            <div class="cliente-item"><img src="assets/logo17.png"></div>
+            <div class="cliente-item"><img src="assets/logo18.png"></div>
+            <div class="cliente-item"><img src="assets/logo19.png"></div>
+            <div class="cliente-item"><img src="assets/logo13.png"></div>
+            <div class="cliente-item"><img src="assets/logo14.png"></div>
+            <div class="cliente-item"><img src="assets/logo15.png"></div>
+            <div class="cliente-item"><img src="assets/logo16.png"></div>
+            <div class="cliente-item"><img src="assets/logo17.png"></div>
+            <div class="cliente-item"><img src="assets/logo18.png"></div>
+            <div class="cliente-item"><img src="assets/logo19.png"></div>
+        </div>
+
+    </div>
+
+    <div class="px-6 md:px-12 max-w-7xl mx-auto mt-32">
+        <p class="text-center font-headline font-bold text-sm md:text-base tracking-[0.4em] uppercase text-primary-container mb-24 reveal scroll-reveal">
+            Certificações de Autoridade
+        </p>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16 items-center">
+            
+            <div class="cert-item reveal scroll-reveal flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-2 group cursor-pointer py-4">
+                <img src="assets/cert-tedx.png" alt="TEDx Uni Anchieta" class="h-28 md:h-36 w-auto object-contain mb-8 transition-all duration-500 filter brightness-75 saturation-50 group-hover:brightness-110 group-hover:saturation-100">
+                <h3 class="font-headline font-bold text-[#F4F4F4]/70 group-hover:text-primary-container text-xs tracking-widest uppercase transition-colors duration-500">TEDx Speaker</h3>
+            </div>
+
+            <div class="cert-item reveal scroll-reveal flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-2 group cursor-pointer py-4" style="transition-delay: 100ms;">
+                <img src="assets/cert-sap-speakers.png" alt="SAP Speakers 2024" class="h-28 md:h-36 w-auto object-contain mb-8 transition-all duration-500 filter brightness-75 saturation-50 group-hover:brightness-110 group-hover:saturation-100">
+                <h3 class="font-headline font-bold text-[#F4F4F4]/70 group-hover:text-primary-container text-xs tracking-widest uppercase transition-colors duration-500">SAP Speakers</h3>
+            </div>
+
+            <div class="cert-item reveal scroll-reveal flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-2 group cursor-pointer py-4" style="transition-delay: 200ms;">
+                <img src="assets/cert-sapn.png" alt="SAPN Brasília" class="h-28 md:h-36 w-auto object-contain mb-8 transition-all duration-500 filter brightness-75 saturation-50 group-hover:brightness-110 group-hover:saturation-100">
+                <h3 class="font-headline font-bold text-[#F4F4F4]/70 group-hover:text-primary-container text-xs tracking-widest uppercase transition-colors duration-500">SAPN Brasília</h3>
+            </div>
+
+            <div class="cert-item reveal scroll-reveal flex flex-col items-center justify-center text-center transition-all duration-500 hover:-translate-y-2 group cursor-pointer py-4" style="transition-delay: 300ms;">
+                <img src="assets/cert-prospere.png" alt="Palestrante Certificado ABTD" class="h-28 md:h-36 w-auto object-contain mb-8 transition-all duration-500 filter brightness-75 saturation-50 group-hover:brightness-110 group-hover:saturation-100">
+                <h3 class="font-headline font-bold text-[#F4F4F4]/70 group-hover:text-primary-container text-xs tracking-widest uppercase transition-colors duration-500">Certificado ABTD</h3>
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
+<!--PALESTRAS-->    
+
+       <section id="palestras" class="bg-surface relative z-20 py-24 md:py-32 px-6 md:px-12">
+    <div class="max-w-6xl mx-auto">
+
+        <div class="text-center mb-16 md:mb-24 reveal scroll-reveal">
+            <label class="text-primary-container font-headline font-bold text-xs tracking-[0.3em] uppercase block mb-4">Speaking Topics</label>
+            <h2 class="font-headline text-4xl md:text-6xl font-bold editorial-text text-[#F4F4F4]">KEYNOTES QUE<br/>TRANSFORMAM.</h2>
+        </div>
+
+        <div class="flex flex-col gap-12 md:gap-24 pb-12">
+
+            <div class="sticky top-24 w-full bg-surface-container-high rounded-3xl border border-[#F4F4F4]/10 shadow-[0_-10px_40px_rgba(0,0,0,0.5)] overflow-hidden flex flex-col md:flex-row z-[1] h-[75vh] min-h-[480px] md:min-h-0 md:h-[500px] lg:h-[550px] relative">
+                
+                <div class="absolute inset-0 md:relative md:w-1/2 md:order-2 h-full z-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container-high via-surface-container-high/80 to-transparent md:bg-gradient-to-r md:from-surface-container-high md:via-transparent z-10"></div>
+                    <img src="assets/deu-match.png" alt="Deu Match" class="w-full h-full object-cover opacity-50 md:opacity-60 object-top md:object-center">
+                </div>
+
+                <div class="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-end md:justify-center md:order-1 relative z-10 h-full">
+                    <span class="text-primary-container font-headline font-bold text-xs tracking-widest mb-3 md:mb-4 block">PALESTRA 01</span>
+                    <h3 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#F4F4F4] mb-4 md:mb-6">DEU MATCH</h3>
+                    <p class="text-[#F4F4F4]/80 text-base md:text-xl leading-relaxed italic mb-6 md:mb-8">
+                        "A convergência perfeita entre <span class="text-[#F4F4F4] font-bold">CULTURA ORGANIZACIONAL</span> e inovação disruptiva."
+                    </p>
+                    <a href="palestra-deu-match.html" class="w-max bg-primary-container text-on-primary-container px-6 py-4 md:px-8 font-headline font-bold uppercase text-xs tracking-wider square-cta hover:bg-[#F4F4F4] hover:text-[#10131c] transition-colors shadow-lg">
+                        SAIBA MAIS
+                    </a>
+                </div>
+            </div>
+
+            <div class="sticky top-28 md:top-32 w-full bg-surface-container rounded-3xl border border-primary-container/30 shadow-[0_-10px_40px_rgba(0,0,0,0.6)] overflow-hidden flex flex-col md:flex-row z-[2] h-[75vh] min-h-[480px] md:min-h-0 md:h-[500px] lg:h-[550px] relative">
+                
+                <div class="absolute inset-0 md:relative md:w-1/2 md:order-2 h-full z-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface-container via-surface-container/80 to-transparent md:bg-gradient-to-r md:from-surface-container md:via-transparent z-10"></div>
+                    <img src="assets/paixao.png" alt="Paixão e Performance" class="w-full h-full object-cover opacity-50 md:opacity-60 object-top md:object-center">
+                </div>
+
+                <div class="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-end md:justify-center md:order-1 relative z-10 h-full">
+                    <span class="text-primary-container font-headline font-bold text-xs tracking-widest mb-3 md:mb-4 block">PALESTRA 02</span>
+                    <h3 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#F4F4F4] mb-4 md:mb-6">PAIXÃO & PERFORMANCE</h3>
+                    <p class="text-[#F4F4F4]/80 text-base md:text-xl leading-relaxed italic mb-6 md:mb-8">
+                        "O <span class="text-[#F4F4F4] font-bold">ENGAJAMENTO RADICAL</span> como motor de resultados exponenciais no mundo digital."
+                    </p>
+                    <a href="palestra-paixao.html" class="w-max bg-primary-container text-on-primary-container px-6 py-4 md:px-8 font-headline font-bold uppercase text-xs tracking-wider square-cta hover:bg-[#F4F4F4] hover:text-[#10131c] transition-colors shadow-lg">
+                        SAIBA MAIS
+                    </a>
+                </div>
+            </div>
+
+            <div class="sticky top-32 md:top-40 w-full bg-[#1c2028] rounded-3xl border border-[#F4F4F4]/20 shadow-[0_-10px_40px_rgba(0,0,0,0.8)] overflow-hidden flex flex-col md:flex-row z-[3] h-[75vh] min-h-[480px] md:min-h-0 md:h-[500px] lg:h-[550px] relative">
+                
+                <div class="absolute inset-0 md:relative md:w-1/2 md:order-2 h-full z-0">
+                    <div class="absolute inset-0 bg-gradient-to-t from-[#1c2028] via-[#1c2028]/80 to-transparent md:bg-gradient-to-r md:from-[#1c2028] md:via-transparent z-10"></div>
+                    <img src="assets/otimismo.png" alt="Otimismo Estratégico" class="w-full h-full object-cover opacity-50 filter grayscale object-top md:object-center">
+                </div>
+
+                <div class="w-full md:w-1/2 p-8 md:p-12 lg:p-16 flex flex-col justify-end md:justify-center md:order-1 relative z-10 h-full">
+                    <span class="text-primary-container font-headline font-bold text-xs tracking-widest mb-3 md:mb-4 block">PALESTRA 03</span>
+                    <h3 class="text-3xl sm:text-4xl md:text-5xl font-headline font-bold text-[#F4F4F4] mb-4 md:mb-6">OTIMISMO ESTRATÉGICO</h3>
+                    <p class="text-[#F4F4F4]/80 text-base md:text-xl leading-relaxed italic mb-6 md:mb-8">
+                        "Navegando a incerteza com <span class="text-[#F4F4F4] font-bold">VISÃO DE FUTURO</span> e resiliência técnica insuperável."
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="palestra-otimismo.html" class="w-max bg-primary-container text-on-primary-container px-6 py-4 md:px-8 font-headline font-bold uppercase text-xs tracking-wider square-cta hover:bg-[#F4F4F4] hover:text-[#10131c] transition-colors shadow-lg">
+                            SAIBA MAIS
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!--DEPOIMENTOS-->  
+        <section id="depoimentos" class="py-32 px-6 md:px-12 bg-surface relative z-0">
+            
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-20 reveal scroll-reveal">
+                    <label class="text-primary-container font-headline font-bold text-xs tracking-[0.3em] uppercase block mb-4">O Impacto Real</label>
+                    <h2 class="font-headline text-4xl md:text-5xl font-bold editorial-text text-[#F4F4F4]">O QUE DIZEM OS LÍDERES.</h2>
+                </div>
+
+                <div class="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+                    
+                    <div class="break-inside-avoid bg-surface-container-high p-8 rounded-2xl border border-on-surface/10 hover:border-primary-container/50 transition-colors duration-500 reveal testimonial-reveal">
+                        <div class="flex gap-1 text-primary-container mb-4">
+                            <span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-[#F4F4F4] text-lg leading-relaxed mb-6 italic">"O João chegou em um nível de palestra que ainda não tem nome. 100% da plateia chorando, sem conseguir parar de aplaudir. Johnny, meu amigo, que tsunami foi esse?!"</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+                                <img src="assets/branca.png" alt="Branca Barão" class="w-full h-full object-cover grayscale">
+                            </div>
+                            <div>
+                                <span class="block font-headline font-bold text-primary-container text-sm">Branca Barão</span>
+                                <label class="text-[10px] uppercase tracking-widest text-on-surface/40">Especialista & Palestrante</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="break-inside-avoid bg-surface-container p-8 rounded-2xl border border-on-surface/10 hover:border-primary-container/50 transition-colors duration-500 reveal testimonial-reveal">
+                        <div class="flex gap-1 text-primary-container mb-4">
+                            <span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-[#F4F4F4] text-lg leading-relaxed mb-6 italic">"Paixão e Performance por João Henrique é um presente. Uma palestra que motiva, engaja e faz com que todos encontrem a verdadeira conexão pessoal x profissional. Entregou muito além das nossas expectativas."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+                                <img src="assets/tatiana.png" alt="Tatiana Canute" class="w-full h-full object-cover grayscale">
+                            </div>
+                            <div>
+                                <span class="block font-headline font-bold text-primary-container text-sm">Tatiana Canute</span>
+                                <label class="text-[10px] uppercase tracking-widest text-on-surface/40">Head de RH na Xandô</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="break-inside-avoid bg-surface-container-high p-8 rounded-2xl border border-on-surface/10 hover:border-primary-container/50 transition-colors duration-500 reveal testimonial-reveal">
+                        <div class="flex gap-1 text-primary-container mb-4">
+                            <span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span><span class="material-symbols-outlined text-sm">star</span>
+                        </div>
+                        <p class="text-[#F4F4F4] text-lg leading-relaxed mb-6 italic">"Minha primeira nota dez. Ele sempre entrega um conteúdo de altíssimo nível, com excelência e muita paixão pelo que faz. Seu domínio sobre o tema é impressionante."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+                                <img src="assets/daniela.png" alt="Daniela Pontes" class="w-full h-full object-cover grayscale">
+                            </div>
+                            <div>
+                                <span class="block font-headline font-bold text-primary-container text-sm">Daniela Pontes</span>
+                                <label class="text-[10px] uppercase tracking-widest text-on-surface/40">Curadora - Beauty Fair</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="break-inside-avoid bg-surface-container p-8 rounded-2xl border border-on-surface/10 hover:border-primary-container/50 transition-colors duration-500 reveal testimonial-reveal">
+                        <p class="text-[#F4F4F4] text-lg leading-relaxed mb-6 italic">"Quanto carisma e que construção genial. Adorei a palestra! Parabéns!"</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+                                <img src="assets/lara.png" alt="Lara Mattos" class="w-full h-full object-cover grayscale">
+                            </div>
+                            <div>
+                                <span class="block font-headline font-bold text-primary-container text-sm">Lara Mattos</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="break-inside-avoid bg-surface-container-high p-8 rounded-2xl border border-on-surface/10 hover:border-primary-container/50 transition-colors duration-500 reveal testimonial-reveal">
+                        <p class="text-[#F4F4F4] text-lg leading-relaxed mb-6 italic">"Muito bom seu storytelling e a simplicidade que você apresentou um assunto tão relevante."</p>
+                        <div class="flex items-center gap-4">
+                            <div class="w-12 h-12 rounded-full bg-surface-container overflow-hidden">
+                                <img src="assets/henrique.png" alt="Henrique Bueno" class="w-full h-full object-cover grayscale">
+                            </div>
+                            <div>
+                                <span class="block font-headline font-bold text-primary-container text-sm">Henrique Bueno</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+<!--GALERIA-->
+<section id="galeria" class="py-32 px-6 md:px-12 bg-surface-container-lowest relative z-10 border-t border-on-surface/5">
+            <div class="max-w-7xl mx-auto">
+                
+                <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6 reveal scroll-reveal">
+                    <div>
+                        <label class="text-primary-container font-headline font-bold text-xs tracking-[0.3em] uppercase block mb-4">Momentos</label>
+                        <h2 class="font-headline text-4xl md:text-5xl font-bold editorial-text text-[#F4F4F4]">
+                            JOÃO EM <em class="font-light italic text-primary-container">AÇÃO</em>
+                        </h2>
+                    </div>
+                    
+                    <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" rel="noopener noreferrer" class="w-max border border-primary-container text-[#F4F4F4] px-8 py-4 font-headline font-bold uppercase text-xs tracking-wider square-cta hover:bg-primary-container hover:text-on-primary-container transition-colors flex items-center gap-3">
+                        <span>Ver mais no Instagram</span>
+                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                    </a>
+                </div>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-2 reveal scroll-reveal">
+                    
+                    <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" class="group relative overflow-hidden col-span-2 md:col-span-2 md:row-span-2 aspect-[2/1] md:aspect-auto bg-surface-container">
+                        <img src="https://images.unsplash.com/photo-1507878866276-a947ef722fee?w=800&q=80" alt="João no palco" loading="lazy" class="w-full h-full object-cover transition-all duration-700 grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-[#10131c]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary-container text-4xl">visibility</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" class="group relative overflow-hidden col-span-1 aspect-square bg-surface-container">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=600&q=80" alt="Plateia aplaudindo" loading="lazy" class="w-full h-full object-cover transition-all duration-700 grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-[#10131c]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary-container text-3xl">visibility</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" class="group relative overflow-hidden col-span-1 aspect-square bg-surface-container">
+                        <img src="https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=600&q=80" alt="Evento corporativo" loading="lazy" class="w-full h-full object-cover transition-all duration-700 grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-[#10131c]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary-container text-3xl">visibility</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" class="group relative overflow-hidden col-span-1 aspect-square bg-surface-container">
+                        <img src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=600&q=80" alt="Evento de liderança" loading="lazy" class="w-full h-full object-cover transition-all duration-700 grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-[#10131c]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary-container text-3xl">visibility</span>
+                        </div>
+                    </a>
+
+                    <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" class="group relative overflow-hidden col-span-1 aspect-square md:col-span-1 bg-surface-container">
+                        <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?w=600&q=80" alt="Workshop" loading="lazy" class="w-full h-full object-cover transition-all duration-700 grayscale-[0.2] group-hover:grayscale-0 group-hover:scale-110">
+                        <div class="absolute inset-0 bg-[#10131c]/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center">
+                            <span class="material-symbols-outlined text-primary-container text-3xl">visibility</span>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+<!--CONTATO-->
+       <section id="contato" class="py-32 px-6 md:px-12 bg-surface relative z-10">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+
+        <div class="reveal scroll-reveal flex flex-col gap-12">
+            
+            <div>
+                <label class="text-primary-container font-headline font-bold text-xs tracking-[0.3em] uppercase block mb-6">Vamos conversar</label>
+                <h2 class="font-headline text-5xl md:text-6xl font-bold editorial-text text-[#F4F4F4] mb-8">
+                    LEVE A EXPERIÊNCIA<br/>
+                    DO JOÃO PARA<br/>
+                    <em class="font-light italic text-primary-container">sua empresa.</em>
+                </h2>
+                <p class="text-lg text-on-surface/60 leading-relaxed max-w-md">
+                    Cada palestra é personalizada para o seu contexto, sua equipe e seus objetivos. Fale com a assessoria do João e descubra como transformar sua próxima convenção ou evento.
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="https://wa.me/5511982423000?text=Ol%C3%A1%2C+gostaria+de+contratar+uma+palestra+do+Jo%C3%A3o+Henrique" target="_blank" rel="noopener noreferrer" class="w-max bg-[#25D366] text-[#10131c] px-8 py-5 font-headline font-bold uppercase text-xs tracking-wider flex items-center gap-4 hover:brightness-110 transition-transform duration-300 hover:translate-x-2">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+                        <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.03 18.998c-1.43 0-2.843-.374-4.074-1.085l-4.52 1.187 1.21-4.414A9.895 9.895 0 012.004 12C2.004 6.484 6.514 2 12.03 2 17.543 2 22 6.484 22 12.03c0 5.543-4.457 10.027-9.97 9.968z"/>
+                    </svg>
+                    WhatsApp — Fale Agora
+                </a>
+
+                <a href="mailto:eu@jhribeiro.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Palestra" class="w-max bg-primary-container text-on-primary-container px-8 py-5 font-headline font-bold uppercase text-xs tracking-wider flex items-center gap-4 hover:bg-[#F4F4F4] transition-transform duration-300 hover:translate-x-2">
+                    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/>
+                        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    E-mail — eu@jhribeiro.com.br
+                </a>
+            </div>
+
+            <div>
+                <p class="text-[10px] tracking-[0.4em] uppercase text-on-surface/40 font-bold mb-6">Redes Sociais</p>
+                <div class="flex flex-wrap gap-4">
+                    <a href="https://www.linkedin.com/in/jhribeirooficial/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-4 border border-on-surface/10 text-xs tracking-[0.15em] uppercase text-on-surface/60 hover:border-primary-container hover:text-primary-container transition-colors duration-300">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                        LinkedIn
+                    </a>
+                    <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-4 border border-on-surface/10 text-xs tracking-[0.15em] uppercase text-on-surface/60 hover:border-primary-container hover:text-primary-container transition-colors duration-300">
+                        <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                        Instagram
+                    </a>
+                    <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-6 py-4 border border-on-surface/10 text-xs tracking-[0.15em] uppercase text-on-surface/60 hover:border-primary-container hover:text-primary-container transition-colors duration-300">
+                        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.47z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#10131c"/></svg>
+                        YouTube
+                    </a>
+                </div>
+            </div>
+
+            <blockquote class="pt-8 border-t border-on-surface/10">
+                <p class="font-body text-xl md:text-2xl font-light italic leading-relaxed text-[#F4F4F4]/80">
+                    "A palestra certa, para o momento certo, pode mudar o rumo de uma empresa inteira."
+                </p>
+                <cite class="block mt-4 text-[10px] tracking-[0.2em] uppercase text-primary-container font-bold not-italic">
+                    — João Henrique Ribeiro
+                </cite>
+            </blockquote>
+        </div>
+
+        <div class="relative w-full aspect-square lg:aspect-[3/4] overflow-hidden group cursor-pointer reveal scroll-reveal hidden md:block">
+            <div class="absolute inset-0 bg-[#10131c]/20 z-10 mix-blend-overlay transition-opacity duration-1000 group-hover:opacity-0 pointer-events-none"></div>
+            
+            <img src="assets/joaofinal.png" alt="João Henrique Ribeiro" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-1000">
+            
+            <div class="absolute -bottom-4 -right-4 w-32 h-32 border-r-2 border-b-2 border-primary-container/30 z-20 pointer-events-none transition-transform duration-1000 group-hover:translate-x-2 group-hover:translate-y-2"></div>
+        </div>
+
+    </div>
+</section>
+
+<!--FOOTER-->    
+    <footer class="bg-surface-container-lowest border-t border-on-surface/10 py-12 px-6 md:px-12 relative z-10">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
+            
+             <a href="#" class="block z-50">
+            <img src="assets/logo-joão.png" alt="João Henrique Ribeiro" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-105">
+        </a>
+
+            <p class="text-[10px] tracking-[0.1em] text-on-surface/40 uppercase text-center md:text-left">
+                © 2026 TODOS OS DIREITOS RESERVADOS. "Desenvolvido por LKS SOLUÇOES TECNOLOGICAS"
+            </p>
+
+            <nav class="flex gap-6 md:gap-8">
+                <a href="#sobre" class="text-[10px] tracking-[0.2em] uppercase text-on-surface/60 hover:text-primary-container transition-colors">Sobre</a>
+                <a href="#palestras" class="text-[10px] tracking-[0.2em] uppercase text-on-surface/60 hover:text-primary-container transition-colors">Palestras</a>
+                <a href="#contato" class="text-[10px] tracking-[0.2em] uppercase text-on-surface/60 hover:text-primary-container transition-colors">Contato</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const btnMenu = document.getElementById('btn-mobile');
+        const menuMobile = document.getElementById('menu-mobile');
+
+        if (btnMenu && menuMobile) {
+            btnMenu.addEventListener('click', () => {
+                menuMobile.classList.toggle('hidden');
+                
+                // Mágica para trocar o ícone do hambúrguer para um "X"
+                const icon = btnMenu.querySelector('span');
+                if (menuMobile.classList.contains('hidden')) {
+                    icon.textContent = 'menu';
+                } else {
+                    icon.textContent = 'close';
+                }
+            });
+
+            // Fecha o menu automaticamente quando clica em um link
+            const menuLinks = menuMobile.querySelectorAll('a');
+            menuLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    menuMobile.classList.add('hidden');
+                    btnMenu.querySelector('span').textContent = 'menu';
+                });
+            });
+        }
+    });
+</script>
+
+    <script src="script.js"></script>
+ 
+</body>
+
+</body>
+</html>

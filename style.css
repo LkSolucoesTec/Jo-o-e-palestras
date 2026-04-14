@@ -1,0 +1,275 @@
+body {
+    background-color: #10131c;
+    color: #e0e2ee;
+    overflow-x: hidden;
+}
+
+.mesh-grid {
+    background-image: radial-gradient(rgba(244, 244, 244, 0.05) 1px, transparent 1px);
+    background-size: 24px 24px;
+}
+
+.editorial-text {
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.glass-nav {
+    backdrop-filter: blur(24px);
+}
+
+.mask-image-bottom {
+    mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
+
+.marquee-track {
+    animation: marquee 30s linear infinite;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+.square-cta {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.square-cta:hover {
+    transform: scale(1.05);
+}
+
+/* Reveal hidden state */
+.reveal {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* --- Estilos da Timeline --- */
+.timeline-card.glow {
+    border-color: rgba(255, 107, 74, 0.4); /* Usa a cor primary-container */
+    box-shadow: 0 0 30px rgba(255, 107, 74, 0.15), inset 0 0 20px rgba(255, 107, 74, 0.05);
+    transform: scale(1.02); /* Efeito 3D de crescer */
+}
+
+.timeline-dot.active {
+    border-color: #ff6b4a;
+    background-color: #ff6b4a;
+    box-shadow: 0 0 15px #ff6b4a, 0 0 30px #ff6b4a; /* Glow neon */
+    transform: scale(1.3);
+}
+
+.timeline-item {
+    /* Mobile fallback */
+    @media (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+    }
+}
+@media (max-width: 768px) {
+    .timeline-line { left: 24px; transform: none; }
+    .timeline-item .timeline-card { width: calc(100% - 60px); margin-left: 60px; text-align: left; }
+    .timeline-item .timeline-dot-col { position: absolute; left: 16px; top: 30px; }
+}
+
+/* --- Efeito Top Line dos Números --- */
+.number-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #ff6b4a, transparent); /* Cor Laranja do tema */
+    transform: scaleX(0);
+    transition: transform 1.2s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.number-card.is-visible::before {
+    transform: scaleX(1);
+}
+
+/* --- Cards Infinitos: Galeria de Clientes (Dark Premium) --- */
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    overflow: hidden; /* Garante que não passe da tela */
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%); /* Força a ocupar a tela inteira (edge-to-edge) */
+}
+
+/* Faixa de movimento */
+.carousel-track {
+    display: flex;
+    width: max-content;
+    gap: 1.5rem;
+    padding: 0 1.5rem; /* Evita cortar a borda do primeiro item */
+    animation: scroll-left 50s linear infinite;
+}
+
+.carousel-track.reverse {
+    animation: scroll-right 50s linear infinite;
+}
+
+/* Card do Logo - Estilo Dark High-End */
+.cliente-item {
+    background: rgba(16, 19, 28, 0.6); /* surface-container bem escuro e um pouco transparente */
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(244, 244, 244, 0.05); /* Borda muito sutil (outline-variant) */
+    border-radius: 8px; /* Bordas levemente arredondadas, não muito */
+    width: 220px; 
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    flex-shrink: 0;
+    
+    /* Transições de luxo */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cliente-item img {
+    max-width: 80%;
+    max-height: 80%;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.7); /* Mais apagado por padrão */
+    opacity: 0.6;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* HOVER: Card "acende" */
+.cliente-item:hover {
+    background: rgba(30, 35, 50, 0.8); /* Fica um pouco mais claro no hover */
+    border-color: rgba(255, 107, 74, 0.3); /* Borda ganha tom do primary-container */
+    box-shadow: 0 10px 30px -10px rgba(255, 107, 74, 0.15); /* Sombra laranja de fundo */
+    transform: translateY(-5px); /* Flutua pra cima em vez de crescer */
+    z-index: 10;
+}
+
+.cliente-item:hover img {
+    filter: grayscale(0%) brightness(1); /* Ganha cor e brilho total */
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Keyframes */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.75rem)); }
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(calc(-50% - 0.75rem)); }
+    100% { transform: translateX(0); }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+    .cliente-item {
+        width: 160px;
+        height: 90px;
+    }
+    .carousel-track {
+        animation-duration: 35s; /* Um pouco mais rápido no mobile */
+    }
+}
+
+/* --- Cards Infinitos: Galeria de Clientes (Dark Premium - MOBILE FIXED) --- */
+.carousel-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Faixa de movimento */
+.carousel-track {
+    display: flex;
+    width: max-content;
+    gap: 1.5rem;
+    padding: 0 1.5rem;
+    animation: scroll-left 40s linear infinite;
+    will-change: transform; /* Mágica pro celular não travar a animação */
+}
+
+.carousel-track.reverse {
+    animation: scroll-right 40s linear infinite;
+    will-change: transform;
+}
+
+/* Card do Logo */
+.cliente-item {
+    background: rgba(16, 19, 28, 0.6);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px); /* Suporte extra para iOS */
+    border: 1px solid rgba(244, 244, 244, 0.05);
+    border-radius: 8px;
+    width: 220px; 
+    min-width: 220px; /* Força o card a não sumir no celular */
+    height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    flex-shrink: 0; /* Proíbe o navegador de espremer o flexbox */
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cliente-item img {
+    max-width: 80%;
+    max-height: 80%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.7);
+    opacity: 0.6;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    display: block;
+}
+
+/* HOVER */
+.cliente-item:hover {
+    background: rgba(30, 35, 50, 0.8);
+    border-color: rgba(255, 107, 74, 0.3);
+    box-shadow: 0 10px 30px -10px rgba(255, 107, 74, 0.15);
+    transform: translateY(-5px);
+    z-index: 10;
+}
+
+.cliente-item:hover img {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+    transform: scale(1.05);
+}
+
+/* Keyframes */
+@keyframes scroll-left {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 0.75rem)); }
+}
+
+@keyframes scroll-right {
+    0% { transform: translateX(calc(-50% - 0.75rem)); }
+    100% { transform: translateX(0); }
+}
+
+/* Correções específicas para Mobile */
+@media (max-width: 768px) {
+    .cliente-item {
+        width: 160px;
+        min-width: 160px; /* Garante tamanho mínimo no mobile */
+        height: 90px;
+        padding: 1rem;
+    }
+    .carousel-track {
+        animation-duration: 25s; /* Ajusta velocidade no mobile */
+    }
+    .carousel-track.reverse {
+        animation-duration: 25s;
+    }
+}

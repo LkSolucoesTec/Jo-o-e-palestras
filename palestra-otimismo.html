@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html class="dark" lang="pt-BR">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Otimismo Estratégico | JOÃO HENRIQUE RIBEIRO</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary": "#56d9d8",
+                      "outline-variant": "#59413c",
+                      "on-secondary-fixed-variant": "#743324",
+                      "background": "#10131c",
+                      "on-error": "#690005",
+                      "on-tertiary-fixed-variant": "#00504f",
+                      "on-background": "#e0e2ee",
+                      "secondary-fixed": "#ffdad2",
+                      "surface": "#10131c",
+                      "error-container": "#93000a",
+                      "error": "#ffb4ab",
+                      "tertiary-fixed": "#76f6f4",
+                      "on-tertiary-container": "#003939",
+                      "on-secondary": "#571e11",
+                      "primary-container": "#ff6b4a",
+                      "primary": "#ffb4a3",
+                      "surface-container-highest": "#31353e",
+                      "surface-container-high": "#262a33",
+                      "inverse-primary": "#ae3115",
+                      "surface-container": "#1c2028",
+                      "inverse-on-surface": "#2d303a",
+                      "inverse-surface": "#e0e2ee",
+                      "on-primary-fixed": "#3d0600",
+                      "surface-tint": "#ffb4a3",
+                      "surface-container-low": "#181c24",
+                      "outline": "#a88a83",
+                      "on-primary-container": "#661000",
+                      "secondary-container": "#743324",
+                      "tertiary-container": "#00acab",
+                      "surface-container-lowest": "#0a0e16",
+                      "on-tertiary-fixed": "#002020",
+                      "on-surface-variant": "#e1bfb8",
+                      "on-primary": "#630f00",
+                      "surface-dim": "#10131c",
+                      "on-surface": "#e0e2ee",
+                      "on-secondary-fixed": "#3b0902",
+                      "on-primary-fixed-variant": "#8c1900",
+                      "secondary": "#ffb4a3",
+                      "tertiary-fixed-dim": "#56d9d8",
+                      "primary-fixed-dim": "#ffb4a3",
+                      "on-tertiary": "#003736",
+                      "on-error-container": "#ffdad6",
+                      "surface-bright": "#353943",
+                      "surface-variant": "#31353e",
+                      "primary-fixed": "#ffdad2",
+                      "on-secondary-container": "#f89e89",
+                      "secondary-fixed-dim": "#ffb4a3"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0px",
+                      "lg": "0px",
+                      "xl": "0px",
+                      "full": "9999px"
+              },
+              "fontFamily": {
+                      "headline": ["Space Grotesk"],
+                      "body": ["Inter"],
+                      "label": ["Inter"]
+              }
+            },
+          }
+        }
+    </script>
+    <style>
+        .mesh-grid {
+            background-image: radial-gradient(circle, rgba(244,244,244,0.05) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+        .asymmetric-clip {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+        }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        input:-webkit-autofill,
+        input:-webkit-autofill:hover, 
+        input:-webkit-autofill:focus,
+        textarea:-webkit-autofill,
+        textarea:-webkit-autofill:hover,
+        textarea:-webkit-autofill:focus {
+            -webkit-text-fill-color: #e0e2ee;
+            -webkit-box-shadow: 0 0 0px 1000px #1c2028 inset;
+            transition: background-color 5000s ease-in-out 0s;
+        }
+      
+        .cinematic-transition {
+            transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .cinematic-hover:hover {
+            transform: scale(1.02);
+            background-color: #ff856a !important;
+            color: #3d0600 !important;
+        }
+        .text-glow {
+            text-shadow: 0 0 30px rgba(255, 107, 74, 0.3);
+        }
+        @keyframes pulse-green {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .pulse-btn {
+            animation: pulse-green 2s infinite;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+    
+    <nav class="fixed top-0 w-full rounded-none bg-[#10131c]/80 backdrop-blur-xl flex justify-between items-center px-6 md:px-12 py-6 md:py-8 z-[100] transition-all duration-600 ease-[cubic-bezier(0.25,1,0.5,1)]">
+        <a href="index.html" class="flex items-center gap-2 text-on-surface/60 hover:text-primary-container transition-colors font-headline font-bold text-xs uppercase tracking-widest z-50">
+            <span class="material-symbols-outlined text-lg">arrow_back</span>
+            <span class="hidden md:inline">Voltar para Home</span>
+        </a>
+        
+        <a href="#" class="block z-50">
+            <img src="assets/logo-joão.png" alt="João Henrique Ribeiro" class="h-12 md:h-16 w-auto object-contain transition-transform duration-500 hover:scale-105">
+        </a>
+        
+        <a href="#contact" class="hidden md:inline-block bg-primary-container text-on-primary-container px-6 py-3 font-headline font-bold uppercase text-[10px] tracking-wider cinematic-transition cinematic-hover z-50">
+            FALE CONOSCO
+        </a>
+    </nav>
+
+    <main id="barba-wrapper">
+        <div class="barba-container">
+            <section class="relative min-h-[921px] flex items-center justify-center pt-24 pb-32 overflow-hidden mesh-grid">
+                <div class="absolute inset-0 z-0">
+                    <img class="w-full h-full object-cover opacity-20 filter grayscale hover:grayscale-0 transition-all duration-1000" data-alt="Modern high-end corporate architecture" src="assets/otimismo-estrategico.png"/>
+                    <div class="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background"></div>
+                </div>
+                <div class="container mx-auto px-6 relative z-10">
+                    <div class="max-w-6xl mx-auto">
+                        <div class="flex flex-col items-start gap-4">
+                            <span class="reveal-field opacity-0 bg-primary-container text-on-primary-container px-4 py-1 font-headline font-bold text-sm uppercase tracking-widest mb-4">
+                                KEYNOTE EXPERIENCE
+                            </span>
+                            <h1 class="reveal-field opacity-0 text-6xl md:text-[10rem] font-headline font-bold leading-[0.85] tracking-[-0.06em] text-on-surface uppercase mb-8">
+                                Otimismo<br/>
+                                <span class="text-primary-container ml-0 md:ml-32">Estratégico</span>
+                            </h1>
+                            <div class="flex flex-col md:flex-row gap-12 mt-8 max-w-4xl border-l border-primary-container/30 pl-8">
+                                <p class="reveal-field opacity-0 text-2xl md:text-3xl font-headline font-light text-on-surface tracking-tight">
+                                    Transformando Desafios em Oportunidades.
+                                </p>
+                                <p class="reveal-field opacity-0 text-lg font-body text-on-surface/60 max-w-sm">
+                                    Uma ferramenta poderosa para exercitar o otimismo no dia a dia corporativo e construir visão de futuro.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 opacity-40">
+                    <span class="text-[10px] font-headline uppercase tracking-[0.3em]">Scroll for context</span>
+                    <div class="w-[1px] h-12 bg-on-surface"></div>
+                </div>
+            </section>
+
+            <section class="py-32 bg-surface-container-low border-t border-on-surface/5">
+                <div class="container mx-auto px-6">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+                        <div class="lg:col-span-5 lg:sticky lg:top-32">
+                            <h2 class="reveal-field opacity-0 text-5xl md:text-7xl font-headline font-bold uppercase leading-none tracking-tighter mb-8">
+                                A Ciência da<br/><span class="text-primary-container">Resiliência</span>
+                            </h2>
+                            <div class="reveal-field opacity-0 w-24 h-1 bg-primary-container"></div>
+                        </div>
+                        <div class="lg:col-span-7 space-y-12">
+                            <p class="reveal-field opacity-0 text-2xl md:text-3xl font-body font-light leading-relaxed text-on-surface/90">
+                                O otimismo não é uma esperança passiva; é uma <span class="text-on-surface font-bold">competência executiva</span>. Através de dados e psicologia aplicada, João Henrique Ribeiro decodifica como líderes de alta performance processam falhas não como pontos finais, mas como dados brutos para a próxima iteração.
+                            </p>
+                            <p class="reveal-field opacity-0 text-xl font-body leading-relaxed text-on-surface/60">
+                                Nesta palestra, mergulhamos nos mecanismos neurais que permitem transformar a pressão de mercado em vantagem competitiva. Através do "Otimismo Estratégico", as organizações aprendem a construir uma cultura onde o risco é calculado e a resiliência é o motor da inovação.
+                            </p>
+                            <div class="reveal-field opacity-0 aspect-video bg-surface-container overflow-hidden group border border-on-surface/10">
+                                <img class="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" alt="Resiliência corporativa" src="assets/otimismo-estrategico.png"/>
+                            </div>
+                            <p class="reveal-field opacity-0 text-xl font-body leading-relaxed text-on-surface/60">
+                                Deixamos de lado o pensamento positivo genérico para adotar um framework de ação. Onde outros vêem crise, o otimista estratégico enxerga a abertura de um novo ciclo de crescimento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-32 bg-background relative overflow-hidden border-t border-on-surface/10">
+                <div class="container mx-auto px-6">
+                    <div class="mb-24 flex justify-between items-end">
+                        <div class="reveal-field opacity-0">
+                            <span class="font-headline font-bold text-primary-container tracking-widest text-sm uppercase">Roadmap do Insight</span>
+                            <h2 class="text-5xl font-headline font-bold uppercase mt-4">Conteúdo Programático</h2>
+                        </div>
+                        <div class="reveal-field opacity-0 hidden md:block text-right">
+                            <span class="text-on-surface/10 font-headline font-bold text-6xl">01—03</span>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-0 border border-on-surface/10">
+                        <div class="reveal-field opacity-0 md:col-span-4 border-r border-b md:border-b-0 border-on-surface/10 p-12 hover:bg-surface-container-high transition-colors duration-500 flex flex-col gap-8">
+                            <span class="text-primary-container font-headline font-bold text-4xl">01</span>
+                            <h3 class="text-2xl font-headline font-bold uppercase tracking-tight">O Mindset da Possibilidade</h3>
+                            <p class="text-on-surface/60 font-body leading-relaxed">
+                                Como enxergar além dos obstáculos imediatos e identificar padrões de oportunidade onde o senso comum vê apenas barreiras. Técnicas de reframing para liderança.
+                            </p>
+                        </div>
+                        <div class="reveal-field opacity-0 md:col-span-4 border-r border-b md:border-b-0 border-on-surface/10 p-12 hover:bg-surface-container-high transition-colors duration-500 flex flex-col gap-8">
+                            <span class="text-primary-container font-headline font-bold text-4xl">02</span>
+                            <h3 class="text-2xl font-headline font-bold uppercase tracking-tight">Resiliência em Tempos de Crise</h3>
+                            <p class="text-on-surface/60 font-body leading-relaxed">
+                                Ferramentas práticas para manter o foco e o drive durante mudanças bruscas de mercado. Construção de uma "reserva mental" para decisões sob alta pressão.
+                            </p>
+                        </div>
+                        <div class="reveal-field opacity-0 md:col-span-4 p-12 hover:bg-surface-container-high transition-colors duration-500 flex flex-col gap-8">
+                            <span class="text-primary-container font-headline font-bold text-4xl">03</span>
+                            <h3 class="text-2xl font-headline font-bold uppercase tracking-tight">Liderança Inspiradora</h3>
+                            <p class="text-on-surface/60 font-body leading-relaxed">
+                                O exercício do otimismo como ferramenta de mobilização de times. Como infectar positivamente a cultura organizacional sem perder o pragmatismo necessário.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-32 bg-surface-container-high relative border-t border-on-surface/5">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-5xl mx-auto relative reveal-field opacity-0">
+                        <span class="material-symbols-outlined text-8xl text-primary-container opacity-20 absolute -top-12 -left-12">format_quote</span>
+                        <blockquote class="relative z-10">
+                            <p class="text-3xl md:text-5xl font-headline font-light italic leading-tight text-on-surface">
+                                "Navegando a incerteza com visão de futuro e resiliência técnica insuperável. A palestra mudou nossa rota para este ano."
+                            </p>
+                            <footer class="mt-12 flex items-center gap-6">
+                                <div class="w-16 h-[1px] bg-primary-container"></div>
+                                <div class="flex flex-col">
+                                    <cite class="font-headline font-bold text-xl uppercase not-italic">Henrique Bueno</cite>
+                                    <span class="text-on-surface/60 font-body text-sm uppercase tracking-widest">Diretor Comercial</span>
+                                </div>
+                            </footer>
+                        </blockquote>
+                    </div>
+                </div>
+            </section>
+
+            <section class="py-32 bg-background border-t border-on-surface/5" id="contact">
+                <div class="container mx-auto px-6">
+                    <div class="max-w-5xl mx-auto text-center space-y-8 reveal-field opacity-0 z-30 relative">
+                        <span class="text-primary-container font-headline text-sm tracking-[0.2em] uppercase">Connect</span>
+                        <h2 class="text-5xl md:text-7xl font-headline font-bold leading-[0.9] tracking-tighter text-[#F4F4F4] uppercase mb-6 text-glow">
+                            LEVE A PALESTRA <br/><span class="text-primary-container">OTIMISMO ESTRATÉGICO</span> <br/>PARA SUA EMPRESA.
+                        </h2>
+                        <p class="text-xl text-on-surface-variant leading-relaxed max-w-2xl mx-auto mb-16">
+                            Preparado para blindar sua equipe contra a incerteza do mercado? Entre em contato agora e inicie a arquitetura do seu evento corporativo.
+                        </p>
+
+                        <div class="flex flex-col md:flex-row items-center justify-center gap-6 mt-12 z-30 relative">
+                            <a href="https://wa.me/5511982423000?text=Ol%C3%A1%2C+gostaria+de+falar+com+a+equipe+sobre+a+palestra+Otimismo+Estratégico." target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-[#25D366] text-[#10131c] px-10 py-5 font-headline font-bold uppercase text-xs tracking-wider flex items-center justify-center gap-3 transition-transform duration-300 hover:scale-105 hover:brightness-110">
+                                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.03 18.998c-1.43 0-2.843-.374-4.074-1.085l-4.52 1.187 1.21-4.414A9.895 9.895 0 012.004 12C2.004 6.484 6.514 2 12.03 2 17.543 2 22 6.484 22 12.03c0 5.543-4.457 10.027-9.97 9.968z"/></svg>
+                                Falar com a Equipe
+                            </a>
+                            
+                            <a href="https://wa.me/5511982423000?text=Ol%C3%A1%2C+quero+agendar+a+palestra+Otimismo+Estratégico!" target="_blank" rel="noopener noreferrer" class="w-full md:w-auto bg-primary-container text-on-primary-container px-10 py-5 font-headline font-bold uppercase text-xs tracking-wider flex items-center justify-center gap-3 cinematic-transition cinematic-hover hover:bg-[#F4F4F4]">
+                                <span class="material-symbols-outlined text-[18px]">calendar_month</span>
+                                Agendar Palestra
+                            </a>
+                            
+                           <a href="mailto:eu@jhribeiro.com.br?subject=Solicita%C3%A7%C3%A3o%20de%20Palestra" class="w-max bg-primary-container text-on-primary-container px-8 py-5 font-headline font-bold uppercase text-xs tracking-wider flex items-center gap-4 hover:bg-[#F4F4F4] transition-transform duration-300 hover:translate-x-2">
+    <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+    </svg>
+    E-mail — eu@jhribeiro.com.br
+</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="w-full bg-background pb-24 px-6 relative z-10" id="final-cta-bar">
+                <div class="reveal-field opacity-0 mx-auto bg-surface-container-highest/95 px-8 py-8 flex flex-col md:flex-row items-center gap-8 shadow-2xl max-w-5xl w-full border border-outline-variant/30">
+                    <div class="flex-1 text-center md:text-left">
+                        <p class="text-xs font-label uppercase tracking-widest text-primary-container mb-2">Veja datas e vagas disponíveis</p>
+                        <h4 class="text-xl md:text-2xl font-headline font-bold text-on-surface">Solicite um orçamento para sua empresa</h4>
+                    </div>
+                    <a href="https://wa.me/5511982423000?text=Ol%C3%A1%2C+quero+garantir+minha+data+para+a+palestra+Otimismo+Estratégico" target="_blank" rel="noopener noreferrer" class="bg-[#25D366] text-[#10131c] px-10 py-5 font-headline font-bold uppercase tracking-tight transition-transform duration-300 hover:scale-105 flex items-center justify-center gap-3 w-full md:w-auto pulse-btn">
+                        <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm.03 18.998c-1.43 0-2.843-.374-4.074-1.085l-4.52 1.187 1.21-4.414A9.895 9.895 0 012.004 12C2.004 6.484 6.514 2 12.03 2 17.543 2 22 6.484 22 12.03c0 5.543-4.457 10.027-9.97 9.968z"/></svg>
+                        CHAMAR NO WHATSAPP
+                    </a>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="w-full px-6 md:px-12 py-16 flex flex-col md:flex-row justify-between items-center bg-[#10131c] border-t border-[#F4F4F4]/10 relative z-10">
+        <div class="reveal-field opacity-0 font-['Inter'] text-[10px] tracking-[0.2em] text-[#F4F4F4]/40 uppercase mb-8 md:mb-0 text-center md:text-left">
+            © 2024 THE DIGITAL ARCHITECT. ALL RIGHTS RESERVED.
+        </div>
+        
+        <div class="reveal-field opacity-0 flex items-center justify-center gap-3">
+            <a href="https://www.linkedin.com/in/jhribeirooficial/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-5 py-3 border border-on-surface/10 text-[10px] tracking-[0.15em] uppercase text-on-surface/60 hover:border-primary-container hover:text-primary-container transition-colors duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+                LinkedIn
+            </a>
+            <a href="https://www.instagram.com/jhribeirooficial/?hl=en" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-5 py-3 border border-on-surface/10 text-[10px] tracking-[0.15em] uppercase text-on-surface/60 hover:border-primary-container hover:text-primary-container transition-colors duration-300">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                Instagram
+            </a>
+            <a href="#" target="_blank" rel="noopener noreferrer" class="flex items-center gap-3 px-5 py-3 border border-on-surface/10 text-[10px] tracking-[0.15em] uppercase text-on-surface/60 hover:border-primary-container hover:text-primary-container transition-colors duration-300">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.41 19.1C5.12 19.56 12 19.56 12 19.56s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.96 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.47z"/><polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" fill="#10131c"/></svg>
+                YouTube
+            </a>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // O SEU CÓDIGO ORIGINAL GSAP INTACTO (Apenas referenciando a nova estrutura de Footer)
+        const revealElements = document.querySelectorAll('.reveal-field');
+        
+        revealElements.forEach((el) => {
+            gsap.fromTo(el, 
+              { 
+                y: 50, 
+                opacity: 0 
+              }, 
+              { 
+                y: 0, 
+                opacity: 1, 
+                duration: 1.5, 
+                ease: 'power3.out', 
+                scrollTrigger: {
+                  trigger: el,
+                  start: 'top 90%',
+                  toggleActions: 'play none none none'
+                }
+              }
+            );
+        });
+
+        const sections = ['section', 'footer', '#final-cta-bar'];
+        sections.forEach(selector => {
+            const elementsInContainer = document.querySelectorAll(`${selector} .reveal-field`);
+            if (elementsInContainer.length > 1) {
+                 gsap.set(elementsInContainer, { y: 50, opacity: 0 });
+                 ScrollTrigger.create({
+                    trigger: selector,
+                    start: 'top 85%',
+                    onEnter: () => {
+                        gsap.to(elementsInContainer, {
+                            y: 0,
+                            opacity: 1,
+                            duration: 1.5,
+                            stagger: 0.3,
+                            ease: 'power3.out',
+                            overwrite: true
+                        });
+                    }
+                 });
+            }
+        });
+        
+        // Botão voltar smooth scroll (Opcional se precisar voltar para ancoras na mesma pagina)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    });
+    </script>
+</body>
+</html>
